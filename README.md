@@ -29,6 +29,8 @@ A linear combination is then applied between the logits of the 2 models.
 However, you can also tune the learning:
   * `kernels` (list): Kernels to train on the data. If multiple kernels are provided, it will individually train on each kernel, then do a linear combination of the logits.  Must be one (or multiples) of "EH", "VH", "SP", "GL", "WL-Edges", "WL-Nodes". Defaults to `"[WL-Edges,WL-Nodes]"` (care quotes !)
   * `combination` (list): list of coefficient for the combination of kernels. Defaults to `"[1.59,1.35]"` (care quotes !)
+  * `max-alpha` (float): Max value of the alpha coefficient in SVM. Note: multiple alphas can be higher than C, when `class_weight=balanced`. Defaults to `100`.
+  * `sigma` (float >= 0): Sigma in the RBF wrapper. If 0, a linear wrapper is applied instead. Defaults to `1`.
   * `src` (str): path to .pkl datasets. Defaults to `data/`
   * `train-val-split` (float or int): Train val split, in ratio or in number of elements, eg 0.7 or 4200. Usefull when training can take time. Defaults to `0.7`.
   * `do-predict`: whether to do the prediction on the test set. Defaults to `True`
@@ -37,4 +39,4 @@ However, you can also tune the learning:
 **Example**:
 Examples of working command lines:
 * Default command: `python main.py --kernels "[WL-Edges,WL-Nodes]" --combination "[1.59,1.35]" --src data/ --train-val-split 0.7 --do-predict --predict-filename data/predictions.csv`  
-* Default command: `python main.py --kernels "[EH,VH]" --combination "[1,1]" --src data/ --train-val-split 0.4 --do-predict --predict-filename data/predictions.csv`  
+* another command: `python main.py --kernels "[EH,VH]" --combination "[1,1]" --max-alpha 1 --sigma 0 --src data/ --train-val-split 0.4 --do-predict --predict-filename data/predictions.csv`  

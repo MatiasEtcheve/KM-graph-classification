@@ -59,7 +59,7 @@ class ConvertStrToList(click.Option):
     help="""If multiple kernels are prodived, coefficients of the linear combination.""",
 )
 @click.option(
-    "--max_alpha",
+    "--max-alpha",
     type=float,
     default=100,
     show_default=True,
