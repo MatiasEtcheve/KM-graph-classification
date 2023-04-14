@@ -96,7 +96,7 @@ class ConvertStrToList(click.Option):
 @click.option(
     "--predict-filename",
     type=click.File(mode="w"),
-    default="data/predictions.csv",
+    default="test_pred.csv",
     show_default=True,
     help="Path to csv prediction",
 )
@@ -236,6 +236,12 @@ def main(
         df.to_csv(predict_filename, index_label="Id")
         print("--------------------------------------")
         print(f"Predictions saved at {predict_filename.name}")
+
+    print(
+        "Disclaimer: our Kaggle submissions might differ a bit, for several reasons:",
+        "\n\t* the seed of our algorithm was not fixed",
+        "\n\t* when submitting on Kaggle, we train our model on the whole dataset.",
+    )
 
 
 if __name__ == "__main__":

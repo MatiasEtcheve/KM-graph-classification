@@ -171,7 +171,7 @@ class WLKernel(BaseKernel):
         self,
         sigma: Optional[float] = 1,
         iterations: Optional[int] = 3,
-        max_nodes: Optional[int] = 43,
+        max_nodes: Optional[int] = 23,
         normalize: Optional[bool] = True,
         node_attr: Optional[str] = "labels",
         edge_attr: Optional[str] = None,
